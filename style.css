@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: pink;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    text-shadow: pink;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 200px;
+}
+
+.prof{
+    font-size: large;
+}
+input[type="text"]{
+    width: 300px;
+    
+}
+
+h2{
+    text-align: center;
+}
