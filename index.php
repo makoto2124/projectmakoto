@@ -8,22 +8,12 @@ try{
     echo $e->getMessage();
 }
 
-if(!empty($_POST["submit"])){
-    try{
-        $stmt = $pdo->prepare("INSERT INTO `project01-table` (`name`, `age`, `profile`) VALUES (:name, :age, :profile);");
-        $stmt->bindParam(':name', $_POST['name'],PDO::PARAM_STR);
-        $stmt->bindParam(':age', $_POST['age'],PDO::PARAM_STR);
-        $stmt->bindParam(':profile', $_POST['profile'],PDO::PARAM_STR);
-        $stmt->execute();
 
-    
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
-}
 
 $sql = "SELECT * FROM `project01-table`;";
 $comment_array = $pdo->query($sql);
+
+
 
 //DBの接続を閉じる
 $pdo = null;
@@ -43,7 +33,7 @@ $pdo = null;
 <body>
     <h1>プロフィール一覧</h1>
     
-
+</body>
 <body>
     <h2>
     <a href="edit_profile.php">新しいプロフィールを追加</a>
@@ -57,18 +47,22 @@ $pdo = null;
             <div class="how-use-wrapper">
                 <div class="howUse-card">         <!--一つのカードの大枠-->
                     <div class="how-use-inner">
-                       <img class="howUse-image" src= "IMG_0491.JPG"$_COOKIE alt="プロフィール写真">
+                        <img src="data:image/*;base64,<?php echo base64_encode($comment['image']); ?>" class="howUse-image"  alt="プロフィール写真">
                         <h3 class="howUse-title"><?php echo $comment["name"];?></h3>
                         <p class="howUse-text"><?php echo $comment["age"];?></p>
                         <p class="howUse-text"><?php echo $comment["profile"];?></p>
                     </div>
+                    <form method="POST" action="delete_profile.php">
+                        <input type="hidden" name="id" value="<?php echo $comment["id"]; ?>">
+                        <input type="submit" name="delete" value="削除">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     
+    
     <?php endforeach; ?>
-
 </body>
 
 </html>

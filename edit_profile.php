@@ -1,7 +1,6 @@
 <?php
 
 $comment_array = array();
-
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=project01', "root", "1234");
 }catch(PDOException $e){
@@ -9,13 +8,19 @@ try{
 }
 
 if(!empty($_POST["submit"])){
+    
     try{
-        $stmt = $pdo->prepare("INSERT INTO `project01-table` (`name`, `age`, `profile`) VALUES (:name, :age, :profile);");
-        $stmt->bindParam(':name', $_POST['name'],PDO::PARAM_STR);
-        $stmt->bindParam(':age', $_POST['age'],PDO::PARAM_STR);
-        $stmt->bindParam(':profile', $_POST['profile'],PDO::PARAM_STR);
-        $stmt->execute();
-
+        if(isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK){
+            $imageFile = file_get_contents($_FILES['image']['tmp_name']);
+            $stmt = $pdo->prepare("INSERT INTO `project01-table` (`name`, `age`, `profile`, `image`) VALUES (:name, :age, :profile, :image);");
+            $stmt->bindParam(':name', $_POST['name'],PDO::PARAM_STR);
+            $stmt->bindParam(':age', $_POST['age'],PDO::PARAM_STR);
+            $stmt->bindParam(':profile', $_POST['profile'],PDO::PARAM_STR);
+            $stmt->bindParam(':image', $imageFile, PDO::PARAM_LOB);
+            $stmt->execute();
+        }else{
+            echo "エラー";
+        }
     
     }catch(PDOException $e){
         echo $e->getMessage();
@@ -24,6 +29,7 @@ if(!empty($_POST["submit"])){
 
 $sql = "SELECT * FROM `project01-table`;";
 $comment_array = $pdo->query($sql);
+
 
 //DBの接続を閉じる
 $pdo = null;
@@ -41,7 +47,7 @@ $pdo = null;
    
 
     <h1 class="prof">新しいプロフィールを追加</h1>
-    <form class="register" method="POST">
+    <form class="register" method="POST"  enctype="multipart/form-data">
         <h2>名前: <input type="text" name="name" value=""></h2>
         <h2>年齢: <input type="text" name="age" value=""></h2>
         <h2>自己紹介: <textarea name="profile"></textarea></h2>
