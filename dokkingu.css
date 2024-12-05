@@ -1,0 +1,111 @@
+/* 全体のスタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f0; /* 優しいピンク背景 */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ff69b4; /* 明るいピンク */
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    max-width: 400px;
+}
+
+form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #ff69b4;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+form button {
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+}
+
+form button:hover {
+    background: #ff69b4;
+}
+
+/* マッチング結果のスタイル */
+.match-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.profile-card {
+    background: #fff;
+    border: 2px solid #ffd6e5; /* ピンクの枠線 */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.profile-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #ffe6f0; /* 背景と統一感のある薄いピンク */
+}
+
+.profile-card h3 {
+    font-size: 1.2rem;
+    color: #ff69b4;
+}
+
+.profile-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* メディアクエリ：スマホ対応 */
+@media screen and (max-width: 768px) {
+    .form-container, .match-results {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-card {
+        width: 90%;
+    }
+}

@@ -37,6 +37,7 @@ $pdo = null;
 <body>
     <h2>
     <a href="edit_profile.php">新しいプロフィールを追加</a>
+    <a href="dokkingu.php">ドッキングへ</a>    
     </h2>
     <div class="profile-container">
         
@@ -49,6 +50,7 @@ $pdo = null;
                     <div class="how-use-inner">
                         <img src="data:image/*;base64,<?php echo base64_encode($comment['image']); ?>" class="howUse-image"  alt="プロフィール写真">
                         <h3 class="howUse-title"><?php echo $comment["name"];?></h3>
+                        <p class="howUse-text"><?php echo $comment["gender"];?></p>
                         <p class="howUse-text"><?php echo $comment["age"];?></p>
                         <p class="howUse-text"><?php echo $comment["profile"];?></p>
                     </div>
