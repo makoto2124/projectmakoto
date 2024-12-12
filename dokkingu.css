@@ -1,7 +1,10 @@
 /* 全体のスタイル */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ffe6f0; /* 優しいピンク背景 */
+    background-image: url('背景.png'); /* 好きな画像のパスをここに設定 */
+    background-size: cover; /* 画像を全体にフィットさせる */
+    background-position: center; /* 画像の位置を中央に */
+    background-attachment: fixed; /* スクロール時に背景を固定 */
     color: #333;
     margin: 0;
     padding: 0;
@@ -20,7 +23,7 @@ form {
     align-items: center;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* 背景を白にして少し透明感を追加 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     max-width: 400px;
@@ -50,7 +53,7 @@ form button {
 }
 
 form button:hover {
-    background: #ff69b4;
+    background: #ff1493;
 }
 
 /* マッチング結果のスタイル */
@@ -64,7 +67,7 @@ form button:hover {
 }
 
 .profile-card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* 背景を白にして少し透明感を追加 */
     border: 2px solid #ffd6e5; /* ピンクの枠線 */
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

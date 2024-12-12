@@ -45,37 +45,22 @@ $pdo = null;
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
-
     <h1 class="prof">新しいプロフィールを追加</h1>
-    <body>
-        <h2>
-        <a href="index.php">プロフィール一覧</a>
-        </h2>
-    </body>
-    <form class="register" method="POST"  enctype="multipart/form-data">
+    <h2><a href="index.php">プロフィール一覧</a>
+    </h2>
+    <form class="register" method="POST" enctype="multipart/form-data">
         <h2>名前: <input type="text" name="name" value=""></h2>
-        <h2><form method="POST" action=""><label for="gender">性別：</label><select name="gender" id="gender">
-            <option value="男性">男性</option>
-            <option value="女性">女性</option>
+        <h2>性別: <select name="gender" id="gender">
+                    <option value="男性">男性</option>
+                    <option value="女性">女性</option>
+                  </select>
         </h2>
         <h2>年齢: <input type="text" name="age" value=""></h2>
         <h2>自己紹介: <textarea name="profile"></textarea></h2>
         <h2>プロフィール画像: <input type="file" name="image" accept="image/*"></h2>
-        <h2><input type="submit" name="submit" value="保存" ></h2>
+        <h2><input type="submit" name="submit" value="保存"></h2>
     </form>
     <hr>
-
-    
-    
-
-    <body>
-    
-    <div class="profile-container">
-        
-    </div>
-    </body>
-
-    
+    <div class="profile-container"></div>
 </body>
 </html>
